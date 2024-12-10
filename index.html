@@ -7,22 +7,22 @@
   </head>
   <body>
     <h1>Excel Data</h1>
-    <div id="data"></div>
+    <ul id="data-list"></ul>
 
     <script>
-      fetch("/data")
+      const apiURL = "https://hosting-6a0v.onrender.com/data";
+
+      fetch(apiURL)
         .then((response) => response.json())
         .then((data) => {
-          const container = document.getElementById("data");
+          const list = document.getElementById("data-list");
           data.forEach((item) => {
-            const p = document.createElement("p");
-            p.textContent = JSON.stringify(item);
-            container.appendChild(p);
+            const li = document.createElement("li");
+            li.textContent = JSON.stringify(item);
+            list.appendChild(li);
           });
         })
-        .catch((error) => {
-          console.error("Error fetching data:", error);
-        });
+        .catch((err) => console.error("Error fetching data:", err));
     </script>
   </body>
 </html>

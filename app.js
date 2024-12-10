@@ -6,7 +6,7 @@ const app = express();
 
 app.use(express.static(path.join(__dirname, "host")));
 
-const excelFilePath = "C:\\Users\\96176\\Documents\\data.xlsx";
+const excelFilePath = "./data.xlsx";
 
 app.get("/data", (req, res) => {
   try {
